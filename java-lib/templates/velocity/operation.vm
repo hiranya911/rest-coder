@@ -1,0 +1,95 @@
+<li class="endpoint">
+<ul class='operations'>
+      <li class='$!httpMethod operation' id='$!{resourceName}_$!{operationName}_$!{httpMethod}_$!number'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!httpMethod</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_content');" href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!path</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!operationName :</a>
+                  </span>
+                    <a href='#!/$!resourceName/$!{operationName}_$!{httpMethod}_$!number' class="toggleOperation">$!description</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_content'>
+            
+                <form id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					#if ($!inputParameters)
+                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                             #parse("templates/velocity/contentType.vm")
+                            </tbody>
+                        </table>
+					#end	
+                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>$!output.getStatus()</td></tr>
+                        </tbody>
+                    </table>
+		
+                    #if( $!errors )
+                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        #foreach($!error in $!errors)
+							<tr><td>$!error.getStatus()</td><td>$!error.getCause()</td></tr>
+						#end
+                        </tbody>
+                    </table>
+					#end
+                    
+                    <div class='sandbox_header'>
+						<!--#set ($data = "")-->
+                        <input onclick='submitOperation("$!baseUrl", "$!path", "$!httpMethod","$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="$!{resourceName}_$!{operationName}_$!{httpMethod}_$!{number}_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>

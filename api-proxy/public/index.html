@@ -456,102 +456,27 @@ window.swaggerUi = new SwaggerUi({
 </div>
 <ul class='endpoints' id='AllOrders_endpoint_list' style='display:none'><li class="endpoint">
 <ul class='operations'>
-      <li class='get operation' id='AllOrders_getAllOrders_get_0'>
+      <li class='post operation' id='AllOrders_submitOrder_post_0'>
             <div class='heading'>
                 <h3>
                   <span class='http_method'>
-                    <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">get</a>
+                    <a href='#!/AllOrders/submitOrder_post_0' class="toggleOperation">post</a>
                   </span>
                   <span class='path'>
-                    <a onclick="Calls.expandOperation('AllOrders_getAllOrders_get_0_content');" href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">/</a>
+                    <a onclick="Calls.expandOperation('AllOrders_submitOrder_post_0_content');" href='#!/AllOrders/submitOrder_post_0' class="toggleOperation">/</a>
                   </span>
                 </h3>
                 <ul class='options'>
                     <li>
-					<span class='operation_name'> <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">getAllOrders :</a>
+					<span class='operation_name'> <a href='#!/AllOrders/submitOrder_post_0' class="toggleOperation">submitOrder :</a>
                   </span>
-                    <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">Retrieve all the orders currently pending in the system</a>
+                    <a href='#!/AllOrders/submitOrder_post_0' class="toggleOperation">Place a new drink order.</a>
                     </li>
                 </ul>
             </div>
-            <div class='content' id='AllOrders_getAllOrders_get_0_content'>
+            <div class='content' id='AllOrders_submitOrder_post_0_content'>
             
-                <form id="AllOrders_getAllOrders_get_0_form" accept-charset='UTF-8' class='sandbox'>
-                    <div style='margin:0;padding:0;display:inline'></div>
-					                    <div style='margin:0;padding:0;display:inline'></div>
-                    <h4>Success Status Code</h4>
-                    <table class='fullwidth'>
-                        <thead>
-                        <tr>
-                            <th>HTTP Status Code</th>
-                        </tr>
-                        </thead>
-                        <tbody class="operation-status">
-							<tr><td>200</td></tr>
-                        </tbody>
-                    </table>
-		
-                                        <div style='margin:0;padding:0;display:inline'></div>
-                    <h4>Error Status Codes</h4>
-                    <table class='fullwidth'>
-                        <thead>
-                        <tr>
-                            <th>HTTP Status Code</th>
-                            <th>Reason</th>
-                        </tr>
-                        </thead>
-                        <tbody class="operation-status">
-                        							<tr><td>500</td><td>An unexpected runtime exception</td></tr>
-						                        </tbody>
-                    </table>
-					                    
-                    <div class='sandbox_header'>
-						<!---->
-                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "get","AllOrders_getAllOrders_get_0");'  class='submit' name='commit' type='button' value='Try it out!' />
-                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
-                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
-                    </div>
-                 
-                </form>
-	
-                <div id="AllOrders_getAllOrders_get_0_response" class='response' style='display:none'>
-                    <h4>Request URL</h4>
-                    <div id="AllOrders_getAllOrders_get_0_request_url" class='block request_url responseField'></div>
-                    <h4>Response Body</h4>
-                    <div id="AllOrders_getAllOrders_get_0_response_body" class='block response_body responseField json'></div>
-                    <h4>Response Code</h4>
-                    <div id="AllOrders_getAllOrders_get_0_response_code" class='block response_code responseField'></div>
-                    <h4>Response Headers</h4>
-                    <div id="AllOrders_getAllOrders_get_0_response_headers" class='block response_headers responseField'></div>
-                </div>
-			
-            </div>
-        </li>
-    </ul>
-</li>
-<li class="endpoint">
-<ul class='operations'>
-      <li class='post operation' id='AllOrders_submitOrder_post_1'>
-            <div class='heading'>
-                <h3>
-                  <span class='http_method'>
-                    <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">post</a>
-                  </span>
-                  <span class='path'>
-                    <a onclick="Calls.expandOperation('AllOrders_submitOrder_post_1_content');" href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">/</a>
-                  </span>
-                </h3>
-                <ul class='options'>
-                    <li>
-					<span class='operation_name'> <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">submitOrder :</a>
-                  </span>
-                    <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">Place a new drink order.</a>
-                    </li>
-                </ul>
-            </div>
-            <div class='content' id='AllOrders_submitOrder_post_1_content'>
-            
-                <form id="AllOrders_submitOrder_post_1_form" accept-charset='UTF-8' class='sandbox'>
+                <form id="AllOrders_submitOrder_post_0_form" accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
 					                        <h4>Parameters</h4>
     					 <table class='fullwidth'>
@@ -579,7 +504,7 @@ window.swaggerUi = new SwaggerUi({
     </div>
 </td>
 <td>Name of the drink to order</td>
-<td id="AllOrders_submitOrder_post_1_drink_parameter_type">string</td>
+<td id="AllOrders_submitOrder_post_0_drink_parameter_type">string</td>
 </tr>
 <tr>	
 <td class="code optional">additions</td>
@@ -596,7 +521,7 @@ window.swaggerUi = new SwaggerUi({
     </div>
 </td>
 <td>A list of additions to be included in the drink</td>
-<td id="AllOrders_submitOrder_post_1_additions_parameter_type">list(string)</td>
+<td id="AllOrders_submitOrder_post_0_additions_parameter_type">list(string)</td>
 </tr>
                             </tbody>
                         </table>
@@ -629,22 +554,22 @@ window.swaggerUi = new SwaggerUi({
 					                    
                     <div class='sandbox_header'>
 						<!---->
-                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "post","AllOrders_submitOrder_post_1");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "post","AllOrders_submitOrder_post_0");'  class='submit' name='commit' type='button' value='Try it out!' />
                         <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
                         <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
                     </div>
                  
                 </form>
 	
-                <div id="AllOrders_submitOrder_post_1_response" class='response' style='display:none'>
+                <div id="AllOrders_submitOrder_post_0_response" class='response' style='display:none'>
                     <h4>Request URL</h4>
-                    <div id="AllOrders_submitOrder_post_1_request_url" class='block request_url responseField'></div>
+                    <div id="AllOrders_submitOrder_post_0_request_url" class='block request_url responseField'></div>
                     <h4>Response Body</h4>
-                    <div id="AllOrders_submitOrder_post_1_response_body" class='block response_body responseField json'></div>
+                    <div id="AllOrders_submitOrder_post_0_response_body" class='block response_body responseField json'></div>
                     <h4>Response Code</h4>
-                    <div id="AllOrders_submitOrder_post_1_response_code" class='block response_code responseField'></div>
+                    <div id="AllOrders_submitOrder_post_0_response_code" class='block response_code responseField'></div>
                     <h4>Response Headers</h4>
-                    <div id="AllOrders_submitOrder_post_1_response_headers" class='block response_headers responseField'></div>
+                    <div id="AllOrders_submitOrder_post_0_response_headers" class='block response_headers responseField'></div>
                 </div>
 			
             </div>
@@ -653,27 +578,27 @@ window.swaggerUi = new SwaggerUi({
 </li>
 <li class="endpoint">
 <ul class='operations'>
-      <li class='options operation' id='AllOrders_getDescription_options_2'>
+      <li class='options operation' id='AllOrders_getDescription_options_1'>
             <div class='heading'>
                 <h3>
                   <span class='http_method'>
-                    <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation">options</a>
+                    <a href='#!/AllOrders/getDescription_options_1' class="toggleOperation">options</a>
                   </span>
                   <span class='path'>
-                    <a onclick="Calls.expandOperation('AllOrders_getDescription_options_2_content');" href='#!/AllOrders/getDescription_options_2' class="toggleOperation">/</a>
+                    <a onclick="Calls.expandOperation('AllOrders_getDescription_options_1_content');" href='#!/AllOrders/getDescription_options_1' class="toggleOperation">/</a>
                   </span>
                 </h3>
                 <ul class='options'>
                     <li>
-					<span class='operation_name'> <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation">getDescription :</a>
+					<span class='operation_name'> <a href='#!/AllOrders/getDescription_options_1' class="toggleOperation">getDescription :</a>
                   </span>
-                    <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation"></a>
+                    <a href='#!/AllOrders/getDescription_options_1' class="toggleOperation"></a>
                     </li>
                 </ul>
             </div>
-            <div class='content' id='AllOrders_getDescription_options_2_content'>
+            <div class='content' id='AllOrders_getDescription_options_1_content'>
             
-                <form id="AllOrders_getDescription_options_2_form" accept-charset='UTF-8' class='sandbox'>
+                <form id="AllOrders_getDescription_options_1_form" accept-charset='UTF-8' class='sandbox'>
                     <div style='margin:0;padding:0;display:inline'></div>
 					                    <div style='margin:0;padding:0;display:inline'></div>
                     <h4>Success Status Code</h4>
@@ -691,22 +616,97 @@ window.swaggerUi = new SwaggerUi({
                                         
                     <div class='sandbox_header'>
 						<!---->
-                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "options","AllOrders_getDescription_options_2");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "options","AllOrders_getDescription_options_1");'  class='submit' name='commit' type='button' value='Try it out!' />
                         <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
                         <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
                     </div>
                  
                 </form>
 	
-                <div id="AllOrders_getDescription_options_2_response" class='response' style='display:none'>
+                <div id="AllOrders_getDescription_options_1_response" class='response' style='display:none'>
                     <h4>Request URL</h4>
-                    <div id="AllOrders_getDescription_options_2_request_url" class='block request_url responseField'></div>
+                    <div id="AllOrders_getDescription_options_1_request_url" class='block request_url responseField'></div>
                     <h4>Response Body</h4>
-                    <div id="AllOrders_getDescription_options_2_response_body" class='block response_body responseField json'></div>
+                    <div id="AllOrders_getDescription_options_1_response_body" class='block response_body responseField json'></div>
                     <h4>Response Code</h4>
-                    <div id="AllOrders_getDescription_options_2_response_code" class='block response_code responseField'></div>
+                    <div id="AllOrders_getDescription_options_1_response_code" class='block response_code responseField'></div>
                     <h4>Response Headers</h4>
-                    <div id="AllOrders_getDescription_options_2_response_headers" class='block response_headers responseField'></div>
+                    <div id="AllOrders_getDescription_options_1_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="endpoint">
+<ul class='operations'>
+      <li class='get operation' id='AllOrders_getAllOrders_get_2'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/getAllOrders_get_2' class="toggleOperation">get</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('AllOrders_getAllOrders_get_2_content');" href='#!/AllOrders/getAllOrders_get_2' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/AllOrders/getAllOrders_get_2' class="toggleOperation">getAllOrders :</a>
+                  </span>
+                    <a href='#!/AllOrders/getAllOrders_get_2' class="toggleOperation">Retrieve all the orders currently pending in the system</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='AllOrders_getAllOrders_get_2_content'>
+            
+                <form id="AllOrders_getAllOrders_get_2_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<tr><td>500</td><td>An unexpected runtime exception</td></tr>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "get","AllOrders_getAllOrders_get_2");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="AllOrders_getAllOrders_get_2_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="AllOrders_getAllOrders_get_2_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="AllOrders_getAllOrders_get_2_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="AllOrders_getAllOrders_get_2_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="AllOrders_getAllOrders_get_2_response_headers" class='block response_headers responseField'></div>
                 </div>
 			
             </div>

@@ -95,12 +95,12 @@ jQuery.ajax(requestObj);
 
 function syntaxHighlight(json) {
     if (typeof json != 'string') {
-         json = JSON.stringify(json, null, "\t");
+         json = JSON.stringify(json, null, 4);
     }
     //json = json.replace(/,/\n/g, "<br>");
-	json = json.replace(/,/g, ',\n');
-	json = json.replace(/{/g, '\n{\n');
-	json = json.replace(/}/g,'\n}\n');
+    json = json.replace(/,/g, ',\n');
+    json = json.replace(/{/g, '\n{\n');
+    json = json.replace(/}/g,'\n}\n');
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
         var cls = 'number';
