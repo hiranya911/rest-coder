@@ -1,0 +1,21 @@
+{
+    "name" : "Starbucks",
+    "base" : [ "http://test.com/starbucks" ],
+    "resources" : [
+        {
+            "name" : "AllOrders",
+            "path" : "/",
+            "operations" : [
+                {
+                    "name" : "getAllOrders",
+                    "method" : "GET",
+                    "output" : {
+                        "status" : 200,
+                        "contentType" : [ "json" ],
+                        "type" : "list(string)"
+                    }
+                }
+            ]
+        }
+    ]
+}

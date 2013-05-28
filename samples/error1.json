@@ -1,0 +1,150 @@
+{
+    "name" : "Starbucks",
+    "base" : [ "http://test.com/starbucks" ],
+    "resources" : [
+        {
+            "name" : "Order",
+            "path" : "/{orderId}",
+            "inputBindings" : [
+                {
+                    "id":"orderIdBinding",
+                    "name":"orderId",
+                    "type":"string",
+                    "mode":"url"
+                }
+            ],
+            "operations" : [
+                {
+                    "name" : "deleteOrder",
+                    "method":"DELETE",
+                    "description":"Remove the order identified by the specified ID from the system",
+                    "input":{
+                        "params":[
+                            {
+                                "optional":false,
+                                "binding":"orderIdBinding"
+                            }
+                        ]
+                    },
+                    "output":{
+                        "type":"Order",
+                        "contentType":["application/json"],
+                        "status":200
+                    },
+                    "errors":[
+                        {
+                            "cause":"Specified order does not exist",
+                            "status":404
+                        },
+                        {
+                            "cause":"An unexpected runtime exception",
+                            "status":500
+                        }
+                    ]
+                },
+                {
+                    "name" : "getOrder",
+                    "method":"GET",
+                    "description":"Retrieve the order identified by the specified identifier",
+                    "input":{
+                        "params":[
+                            {
+                                "optional":false,
+                                "binding":"orderIdBinding"
+                            }
+                        ]
+                    },
+                    "output":{
+                        "type":"Order",
+                        "contentType":["application/json"],
+                        "status":200
+                    },
+                    "errors":[
+                        {
+                            "cause":"Specified order does not exist",
+                            "status":404
+                        },
+                        {
+                            "cause":"An unexpected runtime exception",
+                            "status":500
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name" : "AllOrders",
+            "path" : "/",
+            "operations" : [
+                {
+                    "name" : "getAllOrders",
+                    "method" : "GET",
+                    "output" : {
+                        "status" : 200,
+                        "contentType" : [ "json" ],
+                        "type" : "list(Order)"
+                    }
+                },
+                {
+                    "name" : "submitOrder",
+                    "method" : "POST",
+                    "input" : {
+                        "contentType" : "json",
+                        "type" : "OrderRequest"
+                    },
+                    "output" : {
+                        "status" : 201,
+                        "contentType" : [ "json" ],
+                        "type" : "Order",
+                        "headers":[
+                            {
+                                "name":"Location",
+                                "type":"href",
+                                "ref":"Order",
+                                "description":"A URL pointer to the Order resource created by this operation"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "dataTypes" : [
+        {
+            "name":"Order",
+            "fields":[
+                {
+                    "name":"orderId",
+                    "type":"string",
+                    "description":"Unique system generated string identifier of the drink.",
+                    "optional":false
+                },
+                {
+                    "name":"drink",
+                    "type":"string",
+                    "description":"Name of the drink",
+                    "optional":false
+                },
+                {
+                    "name":"additions",
+                    "type":"list(string)",
+                    "description":"List of additions (flavors) to be included in the drink",
+                    "optional":false
+                },
+                {
+                    "name":"cost",
+                    "type":"double",
+                    "description":"Cost of the drink in USD",
+                    "optional":false
+                },
+                {
+                    "name":"next",
+                    "type":"href",
+                    "ref":"Order",
+                    "description":"A URL pointing to the next resource in the workflow",
+                    "optional":false
+                }
+            ]
+        }
+    ]
+}

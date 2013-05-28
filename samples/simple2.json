@@ -1,0 +1,90 @@
+{
+    "name" : "Starbucks",
+    "base" : [ "http://test.com/starbucks" ],
+    "resources" : [
+        {
+            "name" : "AllOrders",
+            "path" : "/",
+            "operations" : [
+                {
+                    "name" : "getAllOrders",
+                    "method" : "GET",
+                    "output" : {
+                        "status" : 200,
+                        "contentType" : [ "json" ],
+                        "type" : "list(Order)"
+                    }
+                },
+                {
+                    "name" : "submitOrder",
+                    "method" : "POST",
+                    "input" : {
+                        "contentType" : "json",
+                        "type" : "OrderRequest"
+                    },
+                    "output" : {
+                        "status" : 201,
+                        "contentType" : [ "json" ],
+                        "type" : "Order"
+                    }
+                }
+            ]
+        }
+    ],
+    "dataTypes" : [
+        {
+            "name":"Order",
+            "fields":[
+                {
+                    "name":"orderId",
+                    "type":"string",
+                    "description":"Unique system generated string identifier of the drink.",
+                    "optional":false
+                },
+                {
+                    "name":"drink",
+                    "type":"string",
+                    "description":"Name of the drink",
+                    "optional":false
+                },
+                {
+                    "name":"additions",
+                    "type":"list(string)",
+                    "description":"List of additions (flavors) to be included in the drink",
+                    "optional":false
+                },
+                {
+                    "name":"cost",
+                    "type":"double",
+                    "description":"Cost of the drink in USD",
+                    "optional":false
+                },
+                {
+                    "name":"next",
+                    "type":"href",
+                    "ref":"Order",
+                    "description":"A URL pointing to the next resource in the workflow",
+                    "optional":false
+                }
+            ]
+        },
+        {
+
+            "name":"OrderRequest",
+            "fields":[
+                {
+                    "name":"drink",
+                    "type":"string",
+                    "description":"Name of the drink to order",
+                    "optional":false
+                },
+                {
+                    "name":"additions",
+                    "type":"list(string)",
+                    "description":"A list of additions to be included in the drink",
+                    "optional":true
+                }
+            ]
+        }
+    ]
+}
