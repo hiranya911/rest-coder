@@ -449,6 +449,18 @@ def get_class_parameter(data_type, key):
   return None
 
 def generate_serializers(api, data_type, content_types):
+  """
+  Recursively generate serializer functions for the specified data type. All
+  serializer functions are generated as static functions and added to the
+  STATIC_METHODS global.
+
+  Args:
+    api The API object for which client code is being generated
+    data_type The complex data type definition for which serializers need to
+              be generated
+    content_types Media types to which the objects should be serialized. A
+                  serializer per media type will be generated
+  """
   for content_type in content_types:
     media_type = find_media_type(content_type)
     serializer = get_serializer(media_type, CLASSES, CLASS_NAME_MAPPINGS)
@@ -458,6 +470,18 @@ def generate_serializers(api, data_type, content_types):
         STATIC_METHODS.append(sf)
 
 def generate_deserializers(api, data_type, content_types):
+  """
+  Recursively generate deserializer functions for the specified data type. All
+  deserializer functions are generated as static functions and added to the
+  STATIC_METHODS global.
+
+  Args:
+    api The API object for which client code is being generated
+    data_type The complex data type definition for which deserializers need to
+              be generated
+    content_types Media types to which the objects should be deserialized. A
+                  deserializer per media type will be generated
+  """
   for content_type in content_types:
     media_type = find_media_type(content_type)
     serializer = get_serializer(media_type, CLASSES, CLASS_NAME_MAPPINGS)
@@ -467,6 +491,16 @@ def generate_deserializers(api, data_type, content_types):
         STATIC_METHODS.append(sf)
 
 def has_query_params(resource, operation):
+  """
+  Checks whether the specified operation accepts any query parameters.
+
+  Args:
+    resource  The resource to which the operation belongs
+    operation The operation which is being tested for query parameters
+
+  Returns:
+    True if the operation accepts any query parameters or False otherwise
+  """
   if operation.input:
     params = operation.input.params
     for param in params:
@@ -479,6 +513,16 @@ def has_query_params(resource, operation):
   return False
 
 def handle_query_params(method, resource, operation):
+  """
+  Generates the code necessary for marshaling query parameters. The generated
+  code deals with preparing a single formatted query string from the operation's
+  input arguments.
+
+  Args:
+    method  The Python Method that is being code generated
+    resource  Current resource to which a client is being generated
+    operation Current operation to which code is being generated
+  """
   method.add_line('query = \'\'')
   if has_query_params(resource, operation):
     method.add_line('query_data = dict()')
@@ -516,6 +560,20 @@ def handle_query_params(method, resource, operation):
     method.dedent()
 
 def generate_method_output(operation, method, output_preference):
+  """
+  Helper method for generating code for handling the output/response of
+  an API call. If the operation does not return an output (i.e. no output
+  type is defined, this method does nothing. Otherwise it generates the
+  necessary code to obtain the output data and deserialize them by invoking
+  the appropriate object deserializer. It will also generate the required
+  deserializer functions as it goes along.
+
+  Args:
+    operation Operation to which code is being generated for
+    method    Python method that's being code generated
+    output_preference The preferred output media type (Useful if the operation
+                      has multiple output media types)
+  """
   output_type = operation.output.type
   if output_type is None:
     return
