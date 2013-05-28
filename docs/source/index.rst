@@ -14,6 +14,7 @@ Contents:
    intro
    apidesc
    sphinx-docgen
+   python-codegen
 
 Indices and tables
 ==================

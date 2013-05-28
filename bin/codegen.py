@@ -170,6 +170,8 @@ def generate_imports():
   """
   pcg = PythonCodeGenerator()
   pcg.begin(tab='  ')
+  pcg.writeln('import sys')
+  pcg.writeln('sys.path.append(\'../python-lib\')')
   pcg.writeln('from api import *')
   pcg.writeln('from urlparse import urlparse')
   pcg.writeln('import httplib')
