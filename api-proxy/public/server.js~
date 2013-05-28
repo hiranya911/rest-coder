@@ -1,0 +1,7 @@
+var express = require('express')
+var app = express();
+app.listen(3000);
+
+app.configure(function (){
+    app.use(express.static(__dirname + '/home/stratos/docgen/output/'));
+});
