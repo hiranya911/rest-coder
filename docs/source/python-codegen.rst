@@ -44,6 +44,68 @@ The code generator would also generate separate classes for each of the data typ
 Media Types
 -----------
 
-As of now the Python code generator can only generate code for JSON based APIs. If the input API description uses other media types, the code generator would create some place holder serialization/deserialization functions which simply raises the `NotImplementedError` exception.
+As of now the Python code generator can only generate code for JSON based APIs (i.e. APIs that consume and produce JSON). If the input API description uses other media types, the code generator would create some place holder serialization/deserialization functions which simply raises the `NotImplementedError` exception. ::
 
-It is trivial to add support for other media types in the code generator tool. Simply implement a serializer class extending the ``AbstractSerializer`` class of the ``serializers.py`` module. In this class, specify how to recursively convert a Python object into a byte string in the target media type and how to covert a byte string into a Python object. 
+  def deserialize_VideoFeed_atomxml(obj):
+    raise NotImplementedError
+
+It is trivial to add support for other media types in the code generator tool. Simply implement a serializer extending the ``AbstractSerializer`` class of the ``serializers.py`` module. In this class, specify how to recursively convert a Python object into a byte string in the target media type and how to covert a byte string into a Python object. Refer the default ``JSONSerializer`` class in the same module for an example.
+
+In situations where the target API supports multiple media types, you can force the code generator to stick to a single preferred media type when generating code by specifying the ``-d`` option. ::
+
+  ./codegen.py -f /path/to/api/description.json -o mymodule.py -d json
+
+Using the Generated Code
+-------------------------
+
+Simply import the generated module and use the client classes in the module to communicate with the remote API resources. The docstrings of the class methods would list all the input arguments accepted by each method. ::
+
+  def deleteVideo(self, videoId):
+    """
+    Args:
+      videoId string
+    
+    Returns:
+      An instance of the VideoFeedEntry class
+    """
+    query = ''
+    conn = self.get_connection()
+    ...
+
+The generated methods will take care of marshaling input arguments, HTTP connection establishment and teardown and also unmarshaling response data. An example code snippet that uses a generated module is given below. ::
+
+  import youtube
+
+  if __name__ == '__main__':
+    client = VideoSearchFeedClient()
+    entries = client.getVideoFeed('api', alt='json', q='Google Glass').feed.entry
+    print 'Found ' + str(len(entries)) + ' videos...'
+    for item in entries:
+      print item.title.t, '(Uploaded by:', item.author[0].name.t, ') - ', item.link[0].href
+
+Error Handling
+--------------
+
+If the generated code encounters an error while invoking the target API, it would throw a ``RemoteException``, which is a custom exception type defined in the generated module.
+
+Using a Custom URL
+------------------
+
+By default, the generated code would communicate with the target API by making a HTTP connection to the base URL specified in the API description. But in some cases it would be required to communicate with the API using a custom URL (some gateway or proxy URL). To specify a custom URL, specify the ``endpoint`` argument in the constructor of the corresponding resource client. ::
+
+  import youtube
+
+  if __name__ == '__main__':
+     client = VideoSearchFeedClient(endpoint='http://my.custom.url')
+     ...
+
+Debug Mode
+----------
+
+The auto-generated code supports a special debug mode. When executed in this mode, the client code prints all the requests and responses exchanged with the backend API. To enable the debug mode, simply pass ``True`` to the ``debug`` argument of the constructor of the corresponding resource client. ::
+
+  import youtube
+
+  if __name__ == '__main__':
+     client = VideoSearchFeedClient(debug=True)
+     ...
