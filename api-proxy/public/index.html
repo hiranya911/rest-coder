@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Starbucks</title>
+<!-- Bootstrap -->
+<!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">-->
+
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
+<link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
+<link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+<link href="css/basic.css" rel="stylesheet" media="screen">
+<link href="css/custom.css" rel="stylesheet" media="screen">
+
+<script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+<script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
+<script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
+<script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+<script src='lib/handlebars-1.0.rc.1.js' type='text/javascript'></script>
+<script src='lib/underscore-min.js' type='text/javascript'></script>
+<script src='lib/backbone-min.js' type='text/javascript'></script>
+<!--<script src='lib/doc.js' type='text/javascript'></script>-->
+<script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
+<!--<script src='lib/swagger.js' type='text/javascript'></script>=-->
+<script src='javascript/callApi.js' type='text/javascript'></script>
+<script src='lib/doc.js' type='text/javascript'></script>
+<!--<script src='modified.swagger.ui.js' type='text/javascript'></script>-->
+
+	
+</head>
+<!--
+<script type="text/javascript">
+$(function () {
+window.swaggerUi = new SwaggerUi({
+                discoveryUrl:"http://petstore.swagger.wordnik.com/api/api-docs.json",
+                apiKey:"special-key",
+                dom_id:"swagger-ui-container",
+                supportHeaderParams: false,
+                supportedSubmitMethods: ['get', 'post', 'put'],
+                onComplete: function(swaggerApi, swaggerUi){
+                 if(console) {
+                        console.log("Loaded SwaggerUI")
+                        console.log(swaggerApi);
+                        console.log(swaggerUi);
+                    }
+                  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+                },
+                onFailure: function(data) {
+                 if(console) {
+                        console.log("Unable to Load SwaggerUI");
+                        console.log(data);
+                    }
+                },
+                docExpansion: "none"
+            });
+
+            window.swaggerUi.load();
+        });
+
+    </script>
+-->
+<body>
+	
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<div id="swagger-ui-container" class="swagger-ui-wrap">
+
+<div id="resources_container" class="container">
+	<ul id="resources">
+		 
+	
+<li id="resource_Order" class = "resource active">
+<div class='heading'>
+    <h2>
+        <a href='#!/Order' onclick="Docs.toggleEndpointListForResource('Order');">/Order</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/Order' id='endpointListTogger_Order'
+               onclick="Docs.toggleEndpointListForResource('Order');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('Order'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('Order'); return false;">
+                Expand Operations
+            </a>
+        </li>
+		<!--
+        <li>
+            <a href='/{orderId}'>Raw</a>
+        </li>
+		-->
+    </ul>
+</div>
+<ul class='endpoints' id='Order_endpoint_list' style='display:none'><li class="endpoint">
+<ul class='operations'>
+      <li class='delete operation' id='Order_deleteOrder_delete_0'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Order/deleteOrder_delete_0' class="toggleOperation">delete</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('Order_deleteOrder_delete_0_content');" href='#!/Order/deleteOrder_delete_0' class="toggleOperation">/{orderId}</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/Order/deleteOrder_delete_0' class="toggleOperation">deleteOrder :</a>
+                  </span>
+                    <a href='#!/Order/deleteOrder_delete_0' class="toggleOperation">Remove the order identified by the specified ID from the system</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='Order_deleteOrder_delete_0_content'>
+            
+                <form id="Order_deleteOrder_delete_0_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                             <tr>	
+<td class="code required">orderId</td>
+<td>
+	<input class="body-required" type=text value="" placeholder=(required) name=orderId>
+</td>
+<td></td>
+<td id="Order_deleteOrder_delete_0_orderId_parameter_type">string</td>
+</tr>
+                            </tbody>
+                        </table>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<tr><td>404</td><td>Specified order does not exist</td></tr>
+													<tr><td>500</td><td>An unexpected runtime exception</td></tr>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/{orderId}", "delete","Order_deleteOrder_delete_0");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="Order_deleteOrder_delete_0_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="Order_deleteOrder_delete_0_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="Order_deleteOrder_delete_0_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="Order_deleteOrder_delete_0_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="Order_deleteOrder_delete_0_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="endpoint">
+<ul class='operations'>
+      <li class='get operation' id='Order_getOrder_get_1'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Order/getOrder_get_1' class="toggleOperation">get</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('Order_getOrder_get_1_content');" href='#!/Order/getOrder_get_1' class="toggleOperation">/{orderId}</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/Order/getOrder_get_1' class="toggleOperation">getOrder :</a>
+                  </span>
+                    <a href='#!/Order/getOrder_get_1' class="toggleOperation">Retrieve the order identified by the specified identifier</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='Order_getOrder_get_1_content'>
+            
+                <form id="Order_getOrder_get_1_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                             <tr>	
+<td class="code required">orderId</td>
+<td>
+	<input class="body-required" type=text value="" placeholder=(required) name=orderId>
+</td>
+<td></td>
+<td id="Order_getOrder_get_1_orderId_parameter_type">string</td>
+</tr>
+                            </tbody>
+                        </table>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<tr><td>404</td><td>Specified order does not exist</td></tr>
+													<tr><td>500</td><td>An unexpected runtime exception</td></tr>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/{orderId}", "get","Order_getOrder_get_1");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="Order_getOrder_get_1_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="Order_getOrder_get_1_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="Order_getOrder_get_1_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="Order_getOrder_get_1_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="Order_getOrder_get_1_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+	</ul> <!-- endpoints -->
+</li><!-- resource --><li id="resource_Login" class = "resource active">
+<div class='heading'>
+    <h2>
+        <a href='#!/Login' onclick="Docs.toggleEndpointListForResource('Login');">/Login</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/Login' id='endpointListTogger_Login'
+               onclick="Docs.toggleEndpointListForResource('Login');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('Login'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('Login'); return false;">
+                Expand Operations
+            </a>
+        </li>
+		<!--
+        <li>
+            <a href='/login'>Raw</a>
+        </li>
+		-->
+    </ul>
+</div>
+<ul class='endpoints' id='Login_endpoint_list' style='display:none'><li class="endpoint">
+<ul class='operations'>
+      <li class='post operation' id='Login_login_post_0'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/Login/login_post_0' class="toggleOperation">post</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('Login_login_post_0_content');" href='#!/Login/login_post_0' class="toggleOperation">/login</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/Login/login_post_0' class="toggleOperation">login :</a>
+                  </span>
+                    <a href='#!/Login/login_post_0' class="toggleOperation">Login to the system using simple username/password authentication</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='Login_login_post_0_content'>
+            
+                <form id="Login_login_post_0_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                             <tr>	
+<td class="code required">username</td>
+<td>
+	<textarea class='body-textarea' name='username'></textarea>
+	<br>
+	<div class="content-type">
+    	<div>
+    		<label for="contentType">Parameter content type:</label>
+    		<select name="contentType">
+    			    				<option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+    			    		</select>
+    	</div>
+    </div>
+</td>
+<td>Username of the user</td>
+<td id="Login_login_post_0_username_parameter_type">string</td>
+</tr>
+<tr>	
+<td class="code required">password</td>
+<td>
+	<textarea class='body-textarea' name='password'></textarea>
+	<br>
+	<div class="content-type">
+    	<div>
+    		<label for="contentType">Parameter content type:</label>
+    		<select name="contentType">
+    			    				<option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+    			    		</select>
+    	</div>
+    </div>
+</td>
+<td>Password of the user</td>
+<td id="Login_login_post_0_password_parameter_type">string</td>
+</tr>
+                            </tbody>
+                        </table>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/login", "post","Login_login_post_0");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="Login_login_post_0_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="Login_login_post_0_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="Login_login_post_0_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="Login_login_post_0_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="Login_login_post_0_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+	</ul> <!-- endpoints -->
+</li><!-- resource --><li id="resource_AllOrders" class = "resource active">
+<div class='heading'>
+    <h2>
+        <a href='#!/AllOrders' onclick="Docs.toggleEndpointListForResource('AllOrders');">/AllOrders</a>
+    </h2>
+    <ul class='options'>
+        <li>
+            <a href='#!/AllOrders' id='endpointListTogger_AllOrders'
+               onclick="Docs.toggleEndpointListForResource('AllOrders');">Show/Hide</a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.collapseOperationsForResource('AllOrders'); return false;">
+                List Operations
+            </a>
+        </li>
+        <li>
+            <a href='#' onclick="Docs.expandOperationsForResource('AllOrders'); return false;">
+                Expand Operations
+            </a>
+        </li>
+		<!--
+        <li>
+            <a href='/'>Raw</a>
+        </li>
+		-->
+    </ul>
+</div>
+<ul class='endpoints' id='AllOrders_endpoint_list' style='display:none'><li class="endpoint">
+<ul class='operations'>
+      <li class='get operation' id='AllOrders_getAllOrders_get_0'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">get</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('AllOrders_getAllOrders_get_0_content');" href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">getAllOrders :</a>
+                  </span>
+                    <a href='#!/AllOrders/getAllOrders_get_0' class="toggleOperation">Retrieve all the orders currently pending in the system</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='AllOrders_getAllOrders_get_0_content'>
+            
+                <form id="AllOrders_getAllOrders_get_0_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<tr><td>500</td><td>An unexpected runtime exception</td></tr>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "get","AllOrders_getAllOrders_get_0");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="AllOrders_getAllOrders_get_0_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="AllOrders_getAllOrders_get_0_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="AllOrders_getAllOrders_get_0_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="AllOrders_getAllOrders_get_0_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="AllOrders_getAllOrders_get_0_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="endpoint">
+<ul class='operations'>
+      <li class='post operation' id='AllOrders_submitOrder_post_1'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">post</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('AllOrders_submitOrder_post_1_content');" href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">submitOrder :</a>
+                  </span>
+                    <a href='#!/AllOrders/submitOrder_post_1' class="toggleOperation">Place a new drink order.</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='AllOrders_submitOrder_post_1_content'>
+            
+                <form id="AllOrders_submitOrder_post_1_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                        <h4>Parameters</h4>
+    					 <table class='fullwidth'>
+                            <thead>
+                            <tr>
+                                <th style="width: 100px; max-width: 100px" >Parameter</th>
+                                <th style="width: 310px; max-width: 310px">Value</th>
+                                <th style="width: 200px; max-width: 200px">Description</th>
+                                <th style="width: 320px; max-width: 330px">Data Type</th>
+                            </tr>
+                            </thead>
+                            <tbody class="operation-params">
+                             <tr>	
+<td class="code required">drink</td>
+<td>
+	<textarea class='body-textarea' name='drink'></textarea>
+	<br>
+	<div class="content-type">
+    	<div>
+    		<label for="contentType">Parameter content type:</label>
+    		<select name="contentType">
+    			    				<option value="application/json">application/json</option>
+    			    		</select>
+    	</div>
+    </div>
+</td>
+<td>Name of the drink to order</td>
+<td id="AllOrders_submitOrder_post_1_drink_parameter_type">string</td>
+</tr>
+<tr>	
+<td class="code optional">additions</td>
+<td>
+	<textarea class='body-textarea' name='additions'></textarea>
+	<br>
+	<div class="content-type">
+    	<div>
+    		<label for="contentType">Parameter content type:</label>
+    		<select name="contentType">
+    			    				<option value="application/json">application/json</option>
+    			    		</select>
+    	</div>
+    </div>
+</td>
+<td>A list of additions to be included in the drink</td>
+<td id="AllOrders_submitOrder_post_1_additions_parameter_type">list(string)</td>
+</tr>
+                            </tbody>
+                        </table>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>201</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Error Status Codes</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                            <th>Reason</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+                        							<tr><td>500</td><td>An unexpected runtime exception</td></tr>
+						                        </tbody>
+                    </table>
+					                    
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "post","AllOrders_submitOrder_post_1");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="AllOrders_submitOrder_post_1_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="AllOrders_submitOrder_post_1_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="AllOrders_submitOrder_post_1_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="AllOrders_submitOrder_post_1_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="AllOrders_submitOrder_post_1_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="endpoint">
+<ul class='operations'>
+      <li class='options operation' id='AllOrders_getDescription_options_2'>
+            <div class='heading'>
+                <h3>
+                  <span class='http_method'>
+                    <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation">options</a>
+                  </span>
+                  <span class='path'>
+                    <a onclick="Calls.expandOperation('AllOrders_getDescription_options_2_content');" href='#!/AllOrders/getDescription_options_2' class="toggleOperation">/</a>
+                  </span>
+                </h3>
+                <ul class='options'>
+                    <li>
+					<span class='operation_name'> <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation">getDescription :</a>
+                  </span>
+                    <a href='#!/AllOrders/getDescription_options_2' class="toggleOperation"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class='content' id='AllOrders_getDescription_options_2_content'>
+            
+                <form id="AllOrders_getDescription_options_2_form" accept-charset='UTF-8' class='sandbox'>
+                    <div style='margin:0;padding:0;display:inline'></div>
+					                    <div style='margin:0;padding:0;display:inline'></div>
+                    <h4>Success Status Code</h4>
+                    <table class='fullwidth'>
+                        <thead>
+                        <tr>
+                            <th>HTTP Status Code</th>
+                        </tr>
+                        </thead>
+                        <tbody class="operation-status">
+							<tr><td>200</td></tr>
+                        </tbody>
+                    </table>
+		
+                                        
+                    <div class='sandbox_header'>
+						<!---->
+                        <input onclick='submitOperation("http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "/", "options","AllOrders_getDescription_options_2");'  class='submit' name='commit' type='button' value='Try it out!' />
+                        <a href='#' class='response_hider'  style='display:none'>Hide Response</a>
+                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif'  style='display:none'/>
+                    </div>
+                 
+                </form>
+	
+                <div id="AllOrders_getDescription_options_2_response" class='response' style='display:none'>
+                    <h4>Request URL</h4>
+                    <div id="AllOrders_getDescription_options_2_request_url" class='block request_url responseField'></div>
+                    <h4>Response Body</h4>
+                    <div id="AllOrders_getDescription_options_2_response_body" class='block response_body responseField json'></div>
+                    <h4>Response Code</h4>
+                    <div id="AllOrders_getDescription_options_2_response_code" class='block response_code responseField'></div>
+                    <h4>Response Headers</h4>
+                    <div id="AllOrders_getDescription_options_2_response_headers" class='block response_headers responseField'></div>
+                </div>
+			
+            </div>
+        </li>
+    </ul>
+</li>
+	</ul> <!-- endpoints -->
+</li><!-- resource -->	<!-- End of container -->
+	</ul>
+	<!-- End of resources container -->
+</div>
+<div class="footerLine">&nbsp</div>
+<div class="footer" id="baseUrls">
+<ul>
+	<li>
+    	<h4>Base Urls:</h4>
+                	<div>[http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks]</div>
+                	<div>[https://localhost:8243/starbucks-1.0-SNAPSHOT/starbucks]</div>
+                
+	</li>
+	<li>
+		<h4>License: </h4>[apache2]
+	</li>	
+	<li><h4>Community:</h4> [http://localhost:8080/starbucks-1.0-SNAPSHOT/community]
+	</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

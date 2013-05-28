@@ -1,0 +1,269 @@
+{"name":"Starbucks", "resources":[
+    {
+        "name":"Order",
+        "path":"/{orderId}",
+        "operations":[
+            {
+		"name" : "getOrder",
+                "method":"GET",
+                "description":"Retrieve the order identified by the specified identifier",
+                "input":{
+                    "params":[
+                        {
+                            "optional":false,
+                            "binding":"orderIdBinding"
+                        }
+                    ]
+                },
+                "output":{
+                    "type":"Order",
+                    "contentType":["application/json"],
+                    "status":200
+                },
+                "errors":[
+                    {
+                        "cause":"Specified order does not exist",
+                        "status":404
+                    },
+                    {
+                        "cause":"An unexpected runtime exception",
+                        "status":500
+                    }
+                ]
+            },
+            {
+		"name" : "deleteOrder",
+                "method":"DELETE",
+                "description":"Remove the order identified by the specified ID from the system",
+                "input":{
+                    "params":[
+                        {
+                            "optional":false,
+                            "binding":"orderIdBinding"
+                        }
+                    ]
+                },
+                "output":{
+                    "type":"Order",
+                    "contentType":["application/json"],
+                    "status":200
+                },
+                "errors":[
+                    {
+                        "cause":"Specified order does not exist",
+                        "status":404
+                    },
+                    {
+                        "cause":"An unexpected runtime exception",
+                        "status":500
+                    }
+                ]
+            }
+        ],
+        "inputBindings":[
+            {
+                "id":"orderIdBinding",
+                "name":"orderId",
+                "type":"string",
+                "mode":"url"
+            }
+        ]
+    },
+    {
+        "name":"Login",
+        "path":"/login",
+        "operations":[
+            {
+		"name" : "login",
+                "method":"POST",
+                "description":"Login to the system using simple username/password authentication",
+                "input":{
+                    "type":"LoginFormType",
+                    "contentType":["application/x-www-form-urlencoded"]
+                },
+                "output":{
+                    "type":"boolean",
+                    "contentType":["application/json"],
+                    "status":200
+                }
+            }
+        ]
+    },
+    {
+        "name":"AllOrders",
+        "path":"/",
+        "operations":[
+            {
+		"name" : "getAllOrders",
+                "method":"GET",
+                "description":"Retrieve all the orders currently pending in the system",
+                "output":{
+                    "type":"list(Order)",
+                    "contentType":["application/json"],
+                    "status":200
+                },
+                "errors":[
+                    {
+                        "cause":"An unexpected runtime exception",
+                        "status":500
+                    }
+                ]
+            },
+            {
+		"name" : "submitOrder",
+                "method":"POST",
+                "description":"Place a new drink order.",
+                "input":{
+                    "type":"OrderRequest",
+                    "contentType":["application/json"]
+                },
+                "output":{
+                    "type":"Order",
+                    "contentType":["application/json"],
+                    "headers":[
+                        {
+                            "name":"Location",
+                            "type":"href",
+                            "ref":"Order",
+                            "description":"A URL pointer to the Order resource created by this operation"
+                        }
+                    ],
+                    "status":201
+                },
+                "errors":[
+                    {
+                        "cause":"An unexpected runtime exception",
+                        "status":500
+                    }
+                ]
+            },
+            {
+		"name" : "getDescription",
+                "method":"OPTIONS",
+                "output":{
+                    "type":"_API_",
+                    "contentType":["application/json"],
+                    "status":200
+                }
+            }
+        ]
+    }
+], "version":{
+    "id":"1.0-SNAPSHOT",
+    "strategy":"None"
+}, "description":"Place and manage drink orders online.", "categories":["marketing", "retail"], "tags":["beverages", "recreation", "marketing", "sales"], "base":["http://localhost:8080/starbucks-1.0-SNAPSHOT/starbucks", "https://localhost:8243/starbucks-1.0-SNAPSHOT/starbucks"], "dataTypes":[
+    {
+        "name":"Order",
+        "fields":[
+            {
+                "name":"orderId",
+                "type":"string",
+                "description":"Unique system generated string identifier of the drink.",
+                "optional":false
+            },
+            {
+                "name":"drink",
+                "type":"string",
+                "description":"Name of the drink",
+                "optional":false
+            },
+            {
+                "name":"additions",
+                "type":"list(string)",
+                "description":"List of additions (flavors) to be included in the drink",
+                "optional":false
+            },
+            {
+                "name":"cost",
+                "type":"double",
+                "description":"Cost of the drink in USD",
+                "optional":false
+            },
+            {
+                "name":"next",
+                "type":"href",
+                "ref":"Order",
+                "description":"A URL pointing to the next resource in the workflow",
+                "optional":false
+            }
+        ]
+    },
+    {
+        "name":"OrderRequest",
+        "fields":[
+            {
+                "name":"drink",
+                "type":"string",
+                "description":"Name of the drink to order",
+                "optional":false
+            },
+            {
+                "name":"additions",
+                "type":"list(string)",
+                "description":"A list of additions to be included in the drink",
+                "optional":true
+            }
+        ]
+    },
+    {
+        "name":"LoginFormType",
+        "fields":[
+            {
+                "name":"username",
+                "type":"string",
+                "description":"Username of the user",
+                "optional":false
+            },
+            {
+                "name":"password",
+                "type":"string",
+                "description":"Password of the user",
+                "optional":false
+            }
+        ]
+    }
+], "ownership":[
+    {
+        "name":"Peter Parker",
+        "ownerType":"biz",
+        "email":"peter@dailybugle.com"
+    },
+    {
+        "name":"Hiranya Jayathilaka",
+        "ownerType":"tech",
+        "email":"hiranya@cs.ucsb.edu"
+    }
+], "sla":[
+    {
+        "name":"FREE",
+        "availability":99.7,
+        "rateLimit":20,
+        "timeUnit":"second"
+    },
+    {
+        "name":"SILVER",
+        "availability":99.8,
+        "rateLimit":250,
+        "timeUnit":"second",
+        "costModel":{
+            "currency":"USD",
+            "unitPrice":0.05,
+            "requestsPerUnit":1000
+        }
+    },
+    {
+        "name":"GOLD",
+        "availability":99.9,
+        "rateLimit":1000,
+        "timeUnit":"second",
+        "costModel":{
+            "currency":"USD",
+            "unitPrice":0.1,
+            "requestsPerUnit":1000
+        }
+    }
+], "license":"apache2", "community":"http://localhost:8080/starbucks-1.0-SNAPSHOT/community", "security":{
+    "auth":"BASIC",
+    "credentials":"http://localhost:8080/starbucks-1.0-SNAPSHOT/security",
+    "ssl":"optional"
+}}
