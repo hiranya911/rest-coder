@@ -26,6 +26,7 @@ The Python client stub generator and Sphinx API doc generator require following 
 The AJAX client stub generator and the HTML API doc generator require following software to be setup.
 
 * JDK 1.6 or higher
+* NodeJS and Express (Installation Instructions included on the documentation)
 
 Installation
 ------------

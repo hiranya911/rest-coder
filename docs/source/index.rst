@@ -13,6 +13,7 @@ Contents:
 
    intro
    apidesc
+   html-jquery-doc-code-gen
    sphinx-docgen
    python-codegen
 
