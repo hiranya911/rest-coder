@@ -20,7 +20,7 @@ System Architecture
 	HTML/ JQuery doc and code generator architecture
 
 
-In the above architecture we see that having as our only input the API description in JSON format, we generate HTML/ JQuery code all included in a single (index.html) file. NodeJS acts both as a server for our application and as a reverse proxy that forwards the user requests to the actual API server. We should mention here that because of the same origin security policy we cannot directly invoke our API methods using ajax through our user interface, but we should first send the request to an other app hosted on the NodeJS server that acts as a reverse proxy. The proxy will form an HTTP request and make an asynchronous call to the API and when it gets the answer it will push it back to the user interface and JQuery will finally inject the response to the HTML code.
+In the above architecture we see that having as our only input the API description in JSON format, we generate HTML/ JQuery code all included in a single (index.html) file. NodeJS acts both as a server for our application and as a reverse proxy that forwards the user requests to the actual API server. We should mention here that because of the same origin security policy we cannot directly invoke our API methods using ajax through our user interface, but we should first send the request to another app hosted on the NodeJS server that acts as a reverse proxy. The proxy will form an HTTP request and make an asynchronous call to the API and when it gets the answer it will push it back to the user interface and JQuery will finally inject the response to the HTML code.
 
 Using the Doc Generator
 -----------------------
