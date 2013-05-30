@@ -1,7 +1,7 @@
 HTML/ JQuery API Doc and Code Generator
 =======================================
 
-The HTML/ JQuery API doc and code generator auto-generates HTML code augmented with JQuery code to allow users to view API documentation an a clear HTML format and directly interact with the API invoking the various operations that it supports. The only input required is the JSON based API description as described earlier. The tool includes 3 different parts:
+The HTML/ JQuery API doc and code generator auto-generates HTML code augmented with JQuery code to allow users to view API documentation in a clear HTML format and directly interact with the API invoking the various operations that it supports. The only input required is the JSON based API description as described earlier. The tool includes 3 different parts:
 
 * An html UI generator coded with JAVA
 * A JQuery client who is able to get the posted user information from the UI, recognize the operation it belongs to and send it to the proxy server
