@@ -31,7 +31,13 @@ The AJAX client stub generator and the HTML API doc generator require following 
 Installation
 ------------
 
-TODO
+Use a Git client to check out the necessary source and binary artifacts of RESTCoder. ::
+
+  git clone https://github.com/hiranya911/rest-coder.git
+
+No additional installation/setup procedures are necessary.
+
+If you also wish to setup the sample ``Starbucks`` service to run some tests using RESTCoder, you need to first download and install `Apache Tomcat 6.0 or higher <http://tomcat.apache.org>`_. Copy the ``starbucks-1.0-SNAPSHOT.war`` file in the ``java-lib`` directory of RESTCoder into the ``webapps`` directory of Tomcat, and start the Tomcat server. The mock service will be available on the URL http://localhost:8080/starbucks-1.0-SNAPSHOT
 
 Next Steps
 ----------

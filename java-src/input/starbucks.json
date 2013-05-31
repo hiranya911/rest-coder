@@ -1,4 +1,6 @@
-{"name":"Starbucks", "resources":[
+{
+    "name":"Starbucks",
+    "resources":[
     {
         "name":"Order",
         "path":"/{orderId}",
